@@ -10,7 +10,10 @@ backend (Python Django): svc-cosc412proj
 ### Frontend
 root folder: web-cosc412proj  
 Before running the React project, make sure to install modules with `npm install`     
-Created with `create-react-app`. Custom components can be found in the `src/components` folder
+Created with `create-react-app`. Custom components can be found in the `src/components` folder  
+
+### Backend
+root folder: 
 
 ## Features
 1. Trivia Game
