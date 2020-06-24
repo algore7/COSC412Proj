@@ -13,7 +13,7 @@ Before running the React project, make sure to install modules with `npm install
 Created with `create-react-app`. Custom components can be found in the `src/components` folder  
 
 ### Backend
-root folder: svc_cosc412proj
+root folder: svc_cosc412proj  
 Created with `django-admin startproject` command.
 
 ## Features
