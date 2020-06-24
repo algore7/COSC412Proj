@@ -9,7 +9,7 @@ backend (Python Django): svc_cosc412proj
 ## Project Dev Guide
 
 ### Recommended Workflow  
-A new branch is recommended for developing new features, adding fixes and refactoring code to keep the master branch clean.  
+Each user should develop on his or her own branch to keep the master branch clean.  
 A pull request can be created to merge into the master branch.  
 Before the pull request, merge new changes from master branch and resolve conflicts.  
 
