@@ -7,7 +7,7 @@ export default class Homepage extends React.Component {
     }
 
     changeToTrivia = () => {
-        this.props.onComponentChange("trivia");
+        this.props.onComponentChange("trivia", "#0B6623");
     }
 
     render() {

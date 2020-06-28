@@ -21,21 +21,21 @@ export default class TriviaGame extends React.Component {
     }
 
     changeToHomepage = () => {
-        this.props.onComponentChange("homepage");
+        this.props.onComponentChange("homepage", "white");
     }
 
     startGame = () => {
-
+        
     }
 
     render() {
         let currComponent = null;
         if (this.state.status === "initial") {
             currComponent = <Container fluid id="trivia-container">
-                                <h1>Welcome to Trivia Game!</h1>
-                                <br/>
-                                <button className="initial-btn" onClick={this.changeToHomepage}>Back</button>
-                                <button className="initial-btn" id="initial-play-btn"  onClick={this.startGame}>Play</button>
+                                    <h1>Welcome to Trivia Game!</h1>
+                                    <br/>
+                                    <button className="initial-btn" onClick={this.changeToHomepage}>Back</button>
+                                    <button className="initial-btn" id="initial-play-btn"  onClick={this.startGame}>Play</button>
                             </Container>
         }
         

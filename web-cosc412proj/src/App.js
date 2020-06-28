@@ -16,16 +16,18 @@ class App extends React.Component {
     document.title = "Website Name";
   }
 
-  changeCurrentComponent = (newComponentName) => {
+  changeCurrentComponent = (newComponentName, newBackgroundColor) => {
     this.setState({currentComponent: newComponentName});
+    document.body.style.backgroundColor = newBackgroundColor;
   }
 
   render() {
     let currentComponent = <Homepage/>;
     if (this.state.currentComponent === "homepage")
       currentComponent = <Homepage onComponentChange={this.changeCurrentComponent}/>
-    else if(this.state.currentComponent === "trivia")
+    else if(this.state.currentComponent === "trivia") 
       currentComponent = <TriviaGame onComponentChange={this.changeCurrentComponent}/>
+    
     return (
       <div className="App">
           {currentComponent}
