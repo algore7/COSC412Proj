@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container,ProgressBar} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 import './TriviaGame.css';
 
 export default class TriviaGame extends React.Component {
@@ -8,10 +8,7 @@ export default class TriviaGame extends React.Component {
         this.state = {
             status: "initial",
             questions: [],
-            currentQuestionIndex: 0,
-            timeout: null,
-            timeInterval: null,
-            timeLeft: 60000
+            currentQuestionIndex: 0
         }
     }
 
@@ -40,22 +37,6 @@ export default class TriviaGame extends React.Component {
         });
     }
 
-    componentWillUnmount() {
-        clearTimeout(this.state.timeout);
-        clearInterval(this.state.interval);
-    }
-
-    startTimer = () => {
-        let interval = setInterval(() => {
-            this.setState({timeLeft: this.state.timeLeft - 100});
-        }, 100);
-        let timeoutTemp = setTimeout(() => {
-            this.setState({status: "lost"});
-            clearInterval(interval);
-        }, 60000);
-        this.setState({timeout: timeoutTemp});
-    }
-
     initQuestions(result) {
         let resultQuestions = [];
         for(let question of result) {
@@ -71,46 +52,24 @@ export default class TriviaGame extends React.Component {
         this.props.onComponentChange("homepage", "white");
     }
 
-    setLostStatus = () => {
-        clearInterval(this.state.timeInterval);
-        clearTimeout(this.state.timeout);
-        this.setState({status: "lost"});
-    }
-
     startGame = () => {
         this.setState({
             status: "playing",
             questions: this.initQuestions(this.state.questions),
-            currentQuestionIndex: 0,
-            timeLeft: 60500,
-            timeout: setTimeout(() => {
-                this.setLostStatus();
-            }, 60500),
-            timeInterval: setInterval(() => {
-                this.setState({timeLeft: this.state.timeLeft - 100});
-            }, 100)
+            currentQuestionIndex: 0
         });
     }
 
     checkAnswer = (number) => {
         let currQuestion = this.state.questions[this.state.currentQuestionIndex];
         if(currQuestion["choices"][number] === currQuestion["answer"]) {
-            clearTimeout(this.state.timeout);
-            clearInterval(this.state.timeInterval);
             let nextNumber = this.state.currentQuestionIndex + 1;
             if (nextNumber === this.state.questions.length) {
                 this.setState({status: "won"});
                 return;
             }
             this.setState({
-                currentQuestionIndex: nextNumber, 
-                timeLeft: 60500,
-                timeout: setTimeout(() => {
-                    this.setLostStatus();
-                }, 60500),
-                timeInterval: setInterval(() => {
-                    this.setState({timeLeft: this.state.timeLeft - 100});
-                }, 100)
+                currentQuestionIndex: nextNumber
             });
         }
         else {
@@ -131,7 +90,6 @@ export default class TriviaGame extends React.Component {
         else if(this.state.status === "playing") {
             let currQuestion = this.state.questions[this.state.currentQuestionIndex];
             currComponent = <div>
-                <ProgressBar className="right" active now={(this.state.timeLeft)/60000*100}/>
                 <p style={{color: "white", fontSize: "20px"}}>Points: {this.state.currentQuestionIndex}/{this.state.questions.length}</p>
                 <h1>{currQuestion["question"]}</h1>
                 <button className="ans-btn" onClick={() => {this.checkAnswer(0)}}>{currQuestion["choices"][0]}</button>
