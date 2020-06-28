@@ -1,6 +1,5 @@
 import React from 'react';
 import {Nav,Navbar} from 'react-bootstrap';
-import TriviaGame from './TriviaGame';
 
 export default class Homepage extends React.Component {
     constructor(props) {
