@@ -22,5 +22,8 @@ Created with `create-react-app`. Custom components can be found in the `src/comp
 root folder: svc_cosc412proj  
 Created with `django-admin startproject` command.
 
+#### API Endpoints
+`api/trivia_questions` - `GET` request returns all trivia questions in SQLite3 database
+
 ## Features
 1. Trivia Game
