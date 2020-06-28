@@ -1,5 +1,5 @@
 import React from 'react';
-import {Nav,Navbar,Container,Row,Col} from 'react-bootstrap';
+import {Nav,Navbar} from 'react-bootstrap';
 
 export default class WebsiteNavbar extends React.Component {
     constructor(props) {

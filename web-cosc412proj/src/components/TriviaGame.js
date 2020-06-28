@@ -1,4 +1,5 @@
 import React from 'react';
+import {Container,Row,Col} from 'react-bootstrap';
 
 export default class TriviaGame extends React.Component {
     constructor(props) {
@@ -6,6 +7,13 @@ export default class TriviaGame extends React.Component {
     }
 
     render() {
-        return <h1>Trivia Game</h1>;
+        return (
+            <Container fluid>
+                <h1>Trivia Game</h1>
+                <Row>
+                    <Col lg="12"></Col>
+                </Row>
+            </Container>
+        );
     }
 }
