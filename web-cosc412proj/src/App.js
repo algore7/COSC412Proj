@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TriviaGame from './components/TriviaGame';
+import Homepage from './components/Homepage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentComponent: "homepage"
+    }
+  }
+
+  componentDidMount() {
+    document.title = "Website Name";
+  }
+
+  changeCurrentComponent = (newComponentName, newBackgroundColor) => {
+    this.setState({currentComponent: newComponentName});
+    document.body.style.backgroundColor = newBackgroundColor;
+  }
+
+  render() {
+    let currentComponent = <Homepage/>;
+    if (this.state.currentComponent === "homepage")
+      currentComponent = <Homepage onComponentChange={this.changeCurrentComponent}/>
+    else if(this.state.currentComponent === "trivia") 
+      currentComponent = <TriviaGame onComponentChange={this.changeCurrentComponent}/>
+    
+    return (
+      <div className="App">
+          {currentComponent}
+      </div>
+    );
+  }
 }
 
 export default App;
