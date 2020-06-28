@@ -89,8 +89,8 @@ export default class TriviaGame extends React.Component {
             currComponent = <div>
                 <h1>{currQuestion["question"]}</h1>
                 <button className="ans-btn" onClick={() => {this.checkAnswer(0)}}>{currQuestion["choices"][0]}</button>
-                <button className="ans-btn" onClick={() => {this.checkAnswer(1)}}>{currQuestion["choices"][1]}</button>
-                <button className="ans-btn" onClick={() => {this.checkAnswer(2)}}>{currQuestion["choices"][2]}</button><br/>
+                <button className="ans-btn" onClick={() => {this.checkAnswer(1)}}>{currQuestion["choices"][1]}</button><br/>
+                <button className="ans-btn" onClick={() => {this.checkAnswer(2)}}>{currQuestion["choices"][2]}</button>
                 <button className="ans-btn" onClick={() => {this.checkAnswer(3)}}>{currQuestion["choices"][3]}</button>
             </div>
         }
