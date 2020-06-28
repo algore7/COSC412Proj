@@ -101,6 +101,12 @@ export default class TriviaGame extends React.Component {
                 <button className="initial-btn" id="initial-play-btn"  onClick={this.startGame}>Try again?</button>
             </div>
         }
+        else if(this.state.status === "won") {
+            currComponent = <div>
+                <h1>Congratulations 🎉😃! You've got 20/20 questions right!</h1>
+                <button className="initial-btn" onClick={this.changeToHomepage}>Back to homepage</button>
+            </div>
+        }
         
 
         return  (
