@@ -8,6 +8,11 @@ backend (Python Django): svc_cosc412proj
 
 ## Project Dev Guide
 
+### Requirements  
+Before starting the development, install the python packages from the requirements.txt by running   
+`pip3 install -r requirements.txt` on Linux & MacOS  
+`pip install -r requirements.txt` on Windows  
+
 ### Recommended Workflow  
 Each user should develop on his or her own branch to keep the master branch clean.  
 A pull request can be created to merge into the master branch.  
